@@ -32,7 +32,6 @@ colors.darkdarklime = {93/255*.7, 226/255*.7, 167/255*.7}
 colors.lighterlime = {93/255*1.1, 226/255*1.0, 167/255}
 local e_url = ""
 
-
 -- honeycomb backend server
 API_URL = "https://love2d-honeycomb-server.onrender.com" -- "http://localhost:3000"
 
@@ -2019,7 +2018,7 @@ function GameScreen:loadNewDialog(data, char)
     
     self:play_sound("playcard")
     
-self:after(.1, function()
+   self:after(.1, function()
     local ready = function()
         self.choose.ready = true
         self.shownCard = true
@@ -2187,10 +2186,10 @@ self:after(.1, function()
         
         self.label2.draw = ddraw
         self.label2.drawSpecifics = ddraws
-        
+ 
         self.label2:draw()--gooi.drawComponent(self.label2)
         self.label2:drawSpecifics(self.label2.fgColor or self.label2.style.fgColor)
-        
+
         self.label2.draw = null
         self.label2.drawSpecifics = null
         
@@ -2214,22 +2213,24 @@ self:after(.1, function()
 end) end
 
 function GameScreen:mousereleased()
-    if self.labelTween then
+    if self.labelTween and not self.cardTween then
         self.timer:cancel(self.labelTween)
         self.labelTween = nil
     end
     
-    self.labelTweenValue = 0
-    
+    if not self.cardTween then
+        self.labelTweenValue = 0
+    end
+
     if (self.egP and self.isMenu) or self.quit or game.online then return end
     
-    if self.labelUI and not self.labelUI.texty.done then
+    if self.labelUI and not self.labelUI.texty.done and not self.cardTween then
         while not self.labelUI.texty.done do
             self.labelUI.texty:update(1/30)
         end
     end
     
-    if self.ox and self.rr > 0 then
+    if self.ox and self.rr > 0 and not self.cardTween then
         if math.abs(self.diffx) > 100 and not (self.isMenu and self.chosen==self.data.yes and gdata.energy<=0) then
             self:play_sound("plastic_click")
             local dir = getDir(self.diffx)
@@ -2371,6 +2372,7 @@ end
 local function checkCardChoice(self)
         local changed
         
+
         if self.choose.angle <= 0 then
             if self.chosen ~= self.data.no then
                 self.label2:setText(self.noText)
@@ -2638,6 +2640,7 @@ function Menu2:startGame()
         self:tween(tt, self.nameText, {y=hh, angle = 0 or 180}, f)
         self:tween(tt, self.nameLabel.fgColor, {0,0,0,0})
         self:tween(tt, self.energy, {y=hh}, f)
+        self:tween(tt, self.walletBtn, {y=hh}, f)
     
         if self.playAgainSound then
             self:play_sound(getValue(math.random()>.9 and "erwin_speech" or {"another_one", "aot_short"}))
@@ -2662,6 +2665,7 @@ function Menu2:viewHighscores()
     self:tween(tt, self.nameText, {y=hh, angle = 0 or 180}, f)
     self:tween(tt, self.nameLabel.fgColor, {0,0,0,0})
     self:tween(tt, self.energy, {y=hh}, f)
+    self:tween(tt, self.walletBtn, {y=hh}, f)
     
     if self.rating then
         self:tween(tt, self.rating, {x=W()+self.rating.w, angle=360}, f)
@@ -2804,7 +2808,7 @@ function Menu2:setup()
         
         if scores ~= null then
             local score = scores
-            local energy = lume.min(math.random(1, gdata.energy), 3)
+            local energy = lume.min(math.random(1, lume.max(gdata.energy-1,1)), 3)
             log("Donating energy "..energy..","..gdata.name)
             if energyboard:submitScore(gdata.name, energy) then
                 
@@ -3065,7 +3069,7 @@ function Menu2:setup()
 
     self.walletBtn:setText("")
     self.walletBtn.noStencil = true
-    local wimg = self.walletBtn:addImage("icons/popularity_old.png")
+    local wimg = self.walletBtn:addImage("wallet.png")
   --  wimg.offset_x = -eww/1.5
     
     self.walletBtn.postDraw = self.walletBtn.draw
@@ -3079,7 +3083,7 @@ function Menu2:setup()
 
         if game.walletAddress then
             w.angle = 0
-            wimg.color = colors.lime
+            wimg.color = colors.darklime
 
             return
         end
@@ -4294,7 +4298,7 @@ function game:setup()
     tryToInitializeWallet()
 
     self.scoreCoverAlpha = 0
-    self:set_room(LsdoadMenu or Menu2)--LoadMenu)--GameScreen)--LoadMenu)--GameScreen)--duties
+    self:set_room(LoadMenu or Menu2)--LoadMenu)--GameScreen)--LoadMenu)--GameScreen)--duties
     -- toybox.room:after(3, function() love.timer.sleep(3) end)
     
     
