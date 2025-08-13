@@ -1,0 +1,38 @@
+So far the game is moving along just fine with my "soul" effort (like sole effort? That's the best I could come up with.)
+
+These are the main elements in the game that I've been implementing:
+
+- Guns
+(When picked up the one you're holding is propelled at a speed and bounces off walls hurting enemies that gets in it's way. I also need as many guns (ridiculous or not) that I can get. So far some of what I have are a tennis gun, duck gun and a shotgun)
+
+- Items
+(When picked up it goes to the inventory slot and you hold it, then you can either throw it or use it, an element taken from Brogue, so each item should have atleast 2 uses)
+
+- Upgrades
+(These are items that change your appearance and don't get held/go to the inventory. I need more ideas fore these :rofl: )
+
+- Sets
+(Setpieces like boxes, flower vases and stuff. Also need to think of these more. Some are important like pressure plate + box combo that you need to do to unlock doors)
+
+- Bullets
+(What guns use. Guns control the amount of bullets shot and what bullet to shoot. Bullet data controls shot delay, bullet life span, etc, etc. Bullets are more important than guns data wise because some enemies shoot bullets but don't hold guns.)
+
+- "Creatures"
+(These are just anything with AI. They can do everything the player can do, though if they pickup items that could just feel unfair to the player. The bestiary should be fairly big as I don't want it to be possible for all types of creatures to show up in one run.)
+
+Now what I need to do is change the room layouts, but instead I'm typing this. Heheh.
+Though while I'm at it I can brainstorm the possible room layouts.
+
+1) Pyramid like build
+
+2) Random blocks in center
+
+3) Elevated sides
+
+4) Cellular Automata(?) on the room
+
+And yeah.
+
+Gif of what I have so far,
+
+eventually it will be THE GREATEST THING IN THE WORLD!!!!
