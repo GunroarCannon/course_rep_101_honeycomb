@@ -12,7 +12,7 @@
 
 ## HOW TO PLAY
 The game is playable on and designed to work on Android, but due to time constraints only a PC version was built.
-Get it ![here](https://hmmmgames.itch.io/course-rep-101-h).
+Get it [here](https://hmmmgames.itch.io/course-rep-101-h).
 ---
 
 ## 🕹 Gameplay Overview
