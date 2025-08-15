@@ -72,6 +72,6 @@ We use LootLocker to manage and display player high scores, combined with Honeyc
 
 ---
 
-[#Walkthrough video displaying gameplay](https://youtu.be/kEwXwjfdfuc?si=YY_prrHGwML4cM1c)
+[WALKTHROUGH VIDEO DISPLAYING GAMEPLAY.](https://youtu.be/kEwXwjfdfuc?si=YY_prrHGwML4cM1c)
 
 
