@@ -73,4 +73,5 @@ We use LootLocker to manage and display player high scores, combined with Honeyc
 ---
 
 #Walkthrough video displaying gameplay
-[![Course Rep 101 Short Walkthrough](https://img.youtube.com/vi/kEwXwjfdfuc/0.jpg)](https://youtu.be/kEwXwjfdfuc "Course Rep 101 Short Walkthrough")
+
+[ ! [Course Rep 101 Short Walkthrough](https://img.youtube.com/vi/kEwXwjfdfuc/0.jpg)](https://youtu.be/kEwXwjfdfuc "Course Rep 101 Short Walkthrough")
